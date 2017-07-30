@@ -5,11 +5,13 @@ source:
 
 package:
   name: {{cookiecutter.project_slug}}
+{% raw %}
 {% if GIT_DESCRIBE_NUMBER > '0' %}
   version: {{ GIT_DESCRIBE_TAG[1:] }}.post{{ GIT_DESCRIBE_NUMBER }}
 {% else %}
   version: {{ GIT_DESCRIBE_TAG[1:] }}.0
 {% endif %}
+{% endraw %}
 
 build:
   # If this is a new build for the same version, increment the build
